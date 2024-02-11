@@ -92,7 +92,7 @@ export default function Home() {
                         <BsBackpackFill style={{ fontSize: "3rem" }} />
                     </button>
                     <button
-                        onClick={() => delayBecause(mech.backpack)}
+                        onClick={() => delayBecause(mech.tornadosAndGold)}
                         className={`flex items-center justify-center rounded border border-black py-4`}
                     >
                         <FaTornado style={{ fontSize: "2.5rem" }} />
