@@ -63,8 +63,10 @@ export default function Home() {
                     {interval.active ? (
                         <button
                             onClick={() => pauseTimer()}
-                            className={`flex items-center justify-center rounded border border-black py-4 ${
-                                interval.active ? "bg-green-200" : ""
+                            className={`flex items-center justify-center rounded border border-black py-4  ${
+                                interval.active
+                                    ? "bg-green-200 hover:bg-green-300"
+                                    : ""
                             }`}
                         >
                             {<FaPause style={{ fontSize: "3rem" }} />}
@@ -73,7 +75,9 @@ export default function Home() {
                         <button
                             onClick={() => startTimer()}
                             className={`flex items-center justify-center rounded border border-black py-4 ${
-                                !interval.active ? "bg-red-200" : ""
+                                !interval.active
+                                    ? "bg-red-200 hover:bg-red-300"
+                                    : ""
                             }`}
                         >
                             <FaPlay style={{ fontSize: "3rem" }} />
@@ -81,7 +85,7 @@ export default function Home() {
                     )}
                     <button
                         onClick={() => resetTimer()}
-                        className={`flex items-center justify-center rounded border border-black py-4`}
+                        className={`flex items-center justify-center rounded border border-black py-4 hover:bg-gray-200`}
                     >
                         <MdRestartAlt style={{ fontSize: "3rem" }} />
                     </button>
@@ -89,13 +93,13 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-4 px-4 ">
                     <button
                         onClick={() => delayBecause(mech.eye)}
-                        className={`flex items-center justify-center rounded border border-black py-4`}
+                        className={`flex items-center justify-center rounded border border-black py-4 hover:bg-gray-200`}
                     >
                         <FaEye style={{ fontSize: "3rem", color: "red" }} />
                     </button>
                     <button
                         onClick={() => delayBecause(mech.backpack)}
-                        className={`flex items-center justify-center rounded border border-black py-4`}
+                        className={`flex items-center justify-center rounded border border-black py-4 hover:bg-gray-200`}
                     >
                         <BsBackpackFill
                             style={{ fontSize: "3rem", color: "purple" }}
@@ -103,7 +107,7 @@ export default function Home() {
                     </button>
                     <button
                         onClick={() => delayBecause(mech.tornadosAndGold)}
-                        className={`flex items-center justify-center rounded border border-black py-4`}
+                        className={`flex items-center justify-center rounded border border-black py-4 hover:bg-gray-200`}
                     >
                         {/* <FaTornado style={{ fontSize: "2.5rem" }} /> / */}
                         <FaMeteor
