@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { useInterval } from "@mantine/hooks"
 import { FaPause, FaPlay, FaEye, FaMeteor } from "react-icons/fa"
-import { FaTornado } from "react-icons/fa6"
+// import { FaTornado } from "react-icons/fa6"
 import useSound from "use-sound"
 import { MdRestartAlt } from "react-icons/md"
 import { BsBackpackFill } from "react-icons/bs"
@@ -51,26 +51,34 @@ export default function Home() {
         <main className="align-center flex w-full flex-1 flex-col items-center justify-between transition-colors">
             <div className="flex w-full max-w-[600px] flex-col justify-center">
                 <div className="flex flex-col items-center">
-                    <div className="text-[180px]">{timer}</div>
-                    <progress value={timer / 60} />
+                    <div
+                        className={`text-[180px] leading-[1] ${
+                            timer <= 10 ? "font-black text-red-500 " : ""
+                        }`}
+                    >
+                        {timer}
+                    </div>
                 </div>
-                <div className="mt-8 grid grid-cols-3 gap-4 p-4">
-                    <button
-                        onClick={() => startTimer()}
-                        className={`flex items-center justify-center rounded border border-black py-4 ${
-                            interval.active ? "bg-green-200" : ""
-                        }`}
-                    >
-                        <FaPlay style={{ fontSize: "3rem" }} />
-                    </button>
-                    <button
-                        onClick={() => pauseTimer()}
-                        className={`flex items-center justify-center rounded border border-black py-4 ${
-                            !interval.active ? "bg-red-200" : ""
-                        }`}
-                    >
-                        <FaPause style={{ fontSize: "3rem" }} />
-                    </button>
+                <div className="grid grid-cols-2 gap-4 p-4">
+                    {interval.active ? (
+                        <button
+                            onClick={() => pauseTimer()}
+                            className={`flex items-center justify-center rounded border border-black py-4 ${
+                                interval.active ? "bg-green-200" : ""
+                            }`}
+                        >
+                            {<FaPause style={{ fontSize: "3rem" }} />}
+                        </button>
+                    ) : (
+                        <button
+                            onClick={() => startTimer()}
+                            className={`flex items-center justify-center rounded border border-black py-4 ${
+                                !interval.active ? "bg-red-200" : ""
+                            }`}
+                        >
+                            <FaPlay style={{ fontSize: "3rem" }} />
+                        </button>
+                    )}
                     <button
                         onClick={() => resetTimer()}
                         className={`flex items-center justify-center rounded border border-black py-4`}
@@ -78,26 +86,28 @@ export default function Home() {
                         <MdRestartAlt style={{ fontSize: "3rem" }} />
                     </button>
                 </div>
-                <div className="mt-4 grid grid-cols-3 gap-4 p-4 ">
+                <div className="grid grid-cols-3 gap-4 px-4 ">
                     <button
                         onClick={() => delayBecause(mech.eye)}
                         className={`flex items-center justify-center rounded border border-black py-4`}
                     >
-                        <FaEye style={{ fontSize: "3rem" }} />
+                        <FaEye style={{ fontSize: "3rem", color: "red" }} />
                     </button>
                     <button
                         onClick={() => delayBecause(mech.backpack)}
                         className={`flex items-center justify-center rounded border border-black py-4`}
                     >
-                        <BsBackpackFill style={{ fontSize: "3rem" }} />
+                        <BsBackpackFill
+                            style={{ fontSize: "3rem", color: "purple" }}
+                        />
                     </button>
                     <button
                         onClick={() => delayBecause(mech.tornadosAndGold)}
                         className={`flex items-center justify-center rounded border border-black py-4`}
                     >
-                        <FaTornado style={{ fontSize: "2.5rem" }} />
+                        {/* <FaTornado style={{ fontSize: "2.5rem" }} /> / */}
                         <FaMeteor
-                            style={{ fontSize: "2.5rem", color: "#b59410" }}
+                            style={{ fontSize: "3rem", color: "#b59410" }}
                         />
                     </button>
                 </div>
