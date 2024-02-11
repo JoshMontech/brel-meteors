@@ -8,14 +8,14 @@ import { MdRestartAlt } from "react-icons/md"
 import { BsBackpackFill } from "react-icons/bs"
 
 export default function Home() {
-    const [timer, setTimer] = useState(10)
+    const [timer, setTimer] = useState(60)
     const [play] = useSound("/sounds/oof.mp3")
     const interval = useInterval(() => {
         setTimer((s) => s - 1)
     }, 1000)
 
     const resetTimer = () => {
-        setTimer(10)
+        setTimer(60)
     }
 
     const mech = {
@@ -42,9 +42,9 @@ export default function Home() {
 
     useEffect(() => {
         if (timer === 0) {
-            setTimer(10)
+            setTimer(60)
         }
-        if (timer <= 3 || timer === 10) play()
+        if (timer <= 3 || timer === 60) play()
     }, [timer, play])
 
     return (
