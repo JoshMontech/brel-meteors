@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react"
 import { useInterval } from "@mantine/hooks"
 import { FaPause, FaPlay, FaEye, FaMeteor } from "react-icons/fa"
+import { GiBlackHoleBolas } from "react-icons/gi"
+
 // import { FaTornado } from "react-icons/fa6"
 import useSound from "use-sound"
 import { MdRestartAlt } from "react-icons/md"
@@ -14,8 +16,8 @@ export default function Home() {
         setTimer((s) => s - 1)
     }, 1000)
 
-    const resetTimer = () => {
-        setTimer(60)
+    const resetTimer = (num = 60) => {
+        setTimer(num)
     }
 
     const mech = {
@@ -44,7 +46,7 @@ export default function Home() {
         if (timer === 0) {
             setTimer(60)
         }
-        if (timer <= 3 || timer === 60) play()
+        if (timer <= 3 || timer === 10) play()
     }, [timer, play])
 
     return (
@@ -90,7 +92,7 @@ export default function Home() {
                         <MdRestartAlt style={{ fontSize: "3rem" }} />
                     </button>
                 </div>
-                <div className="grid grid-cols-3 gap-4 px-4 ">
+                <div className="grid grid-cols-4 gap-4 px-4 ">
                     <button
                         onClick={() => delayBecause(mech.eye)}
                         className={`flex items-center justify-center rounded border border-black py-4 hover:bg-gray-200`}
@@ -111,6 +113,14 @@ export default function Home() {
                     >
                         {/* <FaTornado style={{ fontSize: "2.5rem" }} /> / */}
                         <FaMeteor
+                            style={{ fontSize: "3rem", color: "#b59410" }}
+                        />
+                    </button>
+                    <button
+                        onClick={() => resetTimer(42)}
+                        className={`flex items-center justify-center rounded border border-black py-4 hover:bg-gray-200`}
+                    >
+                        <GiBlackHoleBolas
                             style={{ fontSize: "3rem", color: "#b59410" }}
                         />
                     </button>
