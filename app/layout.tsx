@@ -1,5 +1,4 @@
 import "./globals.css"
-import Providers from "./providers"
 import MainHeader from "@/components/MainHeader"
 
 export default function RootLayout({
@@ -10,10 +9,8 @@ export default function RootLayout({
     return (
         <html lang="en" className="flex h-full w-full">
             <body className="relative flex h-full w-full flex-col">
-                <Providers>
-                    <MainHeader />
-                    {children}
-                </Providers>
+                <MainHeader />
+                {children}
             </body>
         </html>
     )
