@@ -1,6 +1,15 @@
+"use client"
+import { useState } from "react"
+
 const MainHeader = () => {
+    const [hidden, setHidden] = useState(false)
     return (
-        <header className="bg-primary sticky top-0 flex h-[64px] w-full border-b px-[24px]">
+        <header
+            className={`bg-primary sticky top-0 flex h-[64px] w-full border-b px-[24px] ${
+                hidden ? "hidden" : ""
+            }`}
+            onClick={() => setHidden(true)}
+        >
             <nav className="flex w-full items-center justify-between">
                 <div className="flex items-center gap-[24px]">
                     <div className="text-2xl font-bold">
