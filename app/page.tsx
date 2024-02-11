@@ -49,7 +49,7 @@ export default function Home() {
 
     return (
         <main className="align-center flex w-full flex-1 flex-col items-center justify-between transition-colors">
-            <div className="mt-12 flex w-full max-w-[600px] flex-col justify-center">
+            <div className="flex w-full max-w-[600px] flex-col justify-center">
                 <div className="flex flex-col items-center">
                     <div className="text-[180px]">{timer}</div>
                     <progress value={timer / 60} />
@@ -102,7 +102,6 @@ export default function Home() {
                     </button>
                 </div>
             </div>
-            <div className="text-center text-xs">by kabang</div>
         </main>
     )
 }
